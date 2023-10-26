@@ -56,9 +56,14 @@ public class PlayerControllerAttributes : ScriptableObject
 
     [Tooltip("The amount of time we buffer a jump. This allows jump input before actually hitting the ground")]
     public float JumpBuffer = .2f;
-    
-    // [Header("Attack")]
-    // [Tooltip(
-    //     "Makes all Input snap to an integer. Prevents gamepads from walking slowly. Recommended value is true to ensure gamepad/keybaord parity.")]
-    // public float ShotsPerSecond = 1;
+
+    [Header("Attack")]
+    [Tooltip(
+         "Makes all Input snap to an integer. Prevents gamepads from walking slowly. Recommended value is true to ensure gamepad/keybaord parity."),
+     Range(.1f, 60)]
+    public float attackCooldown = 1;
+
+    [Tooltip(
+        "Damage dealt by attack.")]
+    public int attackDamage = 40;
 }

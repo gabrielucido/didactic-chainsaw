@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -21,6 +22,10 @@ public interface IPlayerController
     public Vector2 FrameInput { get; }
 
     public event Action Attacked;
+    // public event Action LookedLeft;
+    // public event Action LookedRight;
+    
+    public bool isFacingRight();
 }
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
@@ -42,6 +47,9 @@ public class PlayerController : MonoBehaviour, IPlayerController
     public event Action Jumped;
 
     public event Action Attacked;
+
+    // public event Action LookedLeft;
+    // public event Action LookedRight;
 
     #endregion
 
@@ -107,6 +115,7 @@ public class PlayerController : MonoBehaviour, IPlayerController
 
         ApplyMovement();
         HandleAttack();
+        handleAttackCooldown();
     }
 
     #region Collisions
@@ -239,26 +248,42 @@ public class PlayerController : MonoBehaviour, IPlayerController
 
     #region Attack
 
+    private float _attackCooldown = 0;
+
+    private void handleAttackCooldown()
+    {
+        if (_attackCooldown > 0)
+        {
+            _attackCooldown -= Time.fixedDeltaTime;
+        }
+        else
+        {
+            _attackCooldown = 0;
+        }
+    }
+
     private void HandleAttack()
     {
-        if (_attacking)
+        if (_attacking && _attackCooldown == 0)
         {
+            _attackCooldown = playerControllerAttributes.attackCooldown;
             ExecuteAttack();
             Attacked?.Invoke();
         }
+        _attacking = false;
     }
 
     private void ExecuteAttack()
     {
-        _attacking = false;
         var hit = Physics2D.Raycast(transform.position, _facingRight ? Vector2.right : Vector2.left, 5f,
             ~playerControllerAttributes.PlayerLayer);
-        // AnimateAttack();
+
         if (hit.collider)
         {
             if (hit.collider.gameObject.CompareTag("Enemy"))
             {
-                Debug.Log("hit!!!");
+                hit.collider.gameObject.GetComponent<EnemyController>()
+                    .TakeDamage(playerControllerAttributes.attackDamage);
             }
         }
     }
@@ -266,6 +291,8 @@ public class PlayerController : MonoBehaviour, IPlayerController
     #endregion
 
     private void ApplyMovement() => _rb.velocity = _frameVelocity;
+
+    public bool isFacingRight() => _facingRight;
 
 #if UNITY_EDITOR
     private void OnValidate()
