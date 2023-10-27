@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2455878188332664621}
   - component: {fileID: 8613384998596487917}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MuzzleFlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 2237601971039130082}
   - component: {fileID: 7656896255709998636}
   - component: {fileID: 7501623600093224267}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,8 +229,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goingLeft: 0
-  velocity: 10
-  autoDestroyTimer: 10
+  velocity: 100
+  autoDestroyTimer: 5
 --- !u!1 &4473299033645202853
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,7 +241,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8275820991695638605}
   - component: {fileID: 6844331990422427073}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -1,10 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
-
 
 public struct FrameInput
 {
@@ -24,7 +19,7 @@ public interface IPlayerController
     public event Action Attacked;
     // public event Action LookedLeft;
     // public event Action LookedRight;
-    
+
     public bool isFacingRight();
 }
 
@@ -34,6 +29,7 @@ public class PlayerController : MonoBehaviour, IPlayerController
     [SerializeField] private PlayerControllerAttributes playerControllerAttributes;
     private Rigidbody2D _rb;
     private CapsuleCollider2D _col;
+    private SpriteRenderer _spriteRenderer;
     private FrameInput _frameInput;
     private Vector2 _frameVelocity;
     private bool _cachedQueryStartInColliders;
@@ -59,6 +55,7 @@ public class PlayerController : MonoBehaviour, IPlayerController
     {
         _rb = GetComponent<Rigidbody2D>();
         _col = GetComponent<CapsuleCollider2D>();
+        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         _grounded = true;
 
         _cachedQueryStartInColliders = Physics2D.queriesStartInColliders;
@@ -219,7 +216,7 @@ public class PlayerController : MonoBehaviour, IPlayerController
     private void Flip()
     {
         _facingRight = !_facingRight;
-        GetComponentInChildren<SpriteRenderer>().flipX = !_facingRight;
+        _spriteRenderer.flipX = !_facingRight;
     }
 
     #endregion
@@ -270,13 +267,14 @@ public class PlayerController : MonoBehaviour, IPlayerController
             ExecuteAttack();
             Attacked?.Invoke();
         }
+
         _attacking = false;
     }
 
     private void ExecuteAttack()
     {
-        var hit = Physics2D.Raycast(transform.position, _facingRight ? Vector2.right : Vector2.left, 5f,
-            ~playerControllerAttributes.PlayerLayer);
+        var hit = Physics2D.Raycast(transform.position, _facingRight ? Vector2.right : Vector2.left, 100f,
+            ~LayerMask.GetMask("Player", "Ignore Raycast"));
 
         if (hit.collider)
         {
