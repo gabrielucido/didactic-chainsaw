@@ -1,5 +1,7 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using static UnityEngine.LayerMask;
 
 public struct FrameInput
 {
@@ -20,7 +22,7 @@ public interface IPlayerController
     // public event Action LookedLeft;
     // public event Action LookedRight;
 
-    public bool isFacingRight();
+    public bool IsFacingRight();
 }
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
@@ -57,8 +59,8 @@ public class PlayerController : MonoBehaviour, IPlayerController
         _col = GetComponent<CapsuleCollider2D>();
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         _grounded = true;
-
         _cachedQueryStartInColliders = Physics2D.queriesStartInColliders;
+        healthPoints = playerControllerAttributes.max_health_points;
     }
 
     private void Update()
@@ -113,6 +115,7 @@ public class PlayerController : MonoBehaviour, IPlayerController
         ApplyMovement();
         HandleAttack();
         handleAttackCooldown();
+        HandleDeath();
     }
 
     #region Collisions
@@ -274,12 +277,13 @@ public class PlayerController : MonoBehaviour, IPlayerController
     private void ExecuteAttack()
     {
         var hit = Physics2D.Raycast(transform.position, _facingRight ? Vector2.right : Vector2.left, 100f,
-            ~LayerMask.GetMask("Player", "Ignore Raycast"));
+            ~GetMask("Player", "Ignore Raycast"));
 
         if (hit.collider)
         {
             if (hit.collider.gameObject.CompareTag("Enemy"))
             {
+                // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
                 hit.collider.gameObject.GetComponent<EnemyController>()
                     .TakeDamage(playerControllerAttributes.attackDamage);
             }
@@ -288,9 +292,31 @@ public class PlayerController : MonoBehaviour, IPlayerController
 
     #endregion
 
+    #region Death Condition
+
+    [SerializeField] private int healthPoints;
+
+    private void HandleDeath()
+    {
+        if (healthPoints <= 0)
+        {
+            Destroy(gameObject);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Debug.Log("Player is dead!");
+            // TODO: Invoke Death Event
+        }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        healthPoints -= damage;
+    }
+
+    #endregion
+
     private void ApplyMovement() => _rb.velocity = _frameVelocity;
 
-    public bool isFacingRight() => _facingRight;
+    public bool IsFacingRight() => _facingRight;
 
 #if UNITY_EDITOR
     private void OnValidate()

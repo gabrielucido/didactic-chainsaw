@@ -1,12 +1,9 @@
-using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
 public class EnemyController : MonoBehaviour
 {
     [SerializeField] private EnemyStats enemyStats;
-    [SerializeField] private float healthPoints;
-
 
     private void Start()
     {
@@ -18,7 +15,13 @@ public class EnemyController : MonoBehaviour
         HandleDeathCondition();
         HandleFollowPlayer();
         ExecuteFollowPlayer();
+        HandleAttack();
+        HandleAttackCooldown();
     }
+
+    #region Stats and Death Condition
+
+    [SerializeField] private int healthPoints;
 
     private void HandleDeathCondition()
     {
@@ -33,92 +36,112 @@ public class EnemyController : MonoBehaviour
         healthPoints -= damage;
     }
 
-    #region Follow Player
+    #endregion
 
-    [SerializeField] private float _targetDistanceToPlayer = 3;
+    #region Engage Player
 
-    private float _distanceToPlayer = 0;
-    private float _distanceToPlayerOffset;
+    [SerializeField] private float targetDistanceToPlayer = 3;
+
+    private float _distanceToPlayer;
+    private float _targetDistanceToPlayerOffset;
 
     private GameObject _player;
     private bool _playerInRange;
-    private bool _followPlayer;
-
-    // private void OnCollisionEnter2D(Collision2D other)
-    // { 
-    //     Debug.Log("HIT!!!");
-    // }
+    private bool _obstaclesBetweenPlayer;
+    private bool _engagePlayer;
 
     private void HandleFollowPlayer()
     {
-        // Player already in "distance" range but we still need to check if there is obstacles 
         if (_playerInRange)
         {
+            // create the raycast
             var localTransform = transform;
             var position = localTransform.position;
             var playerPosition = _player.transform.position;
             var boxCastSize = new Vector2(.1f, localTransform.localScale.y - .2f);
             var deltaX = position.x - playerPosition.x;
-
             var hit = Physics2D.BoxCast(position, boxCastSize, 0f,
                 deltaX < 0 ? Vector2.right : Vector2.left,
                 100f, ~LayerMask.GetMask("Enemy", "Ignore Raycast"));
 
             if (hit.collider)
             {
-                if (hit.collider.CompareTag("Player"))
-                {
-                    _distanceToPlayer = Vector3.Distance(transform.position, _player.transform.position);
-                    if (_distanceToPlayer > _targetDistanceToPlayer)
-                    {
-                        _followPlayer = true;
-                    }
-                    else
-                    {
-                        _followPlayer = false;
-                    }
-                }
-                else
-                {
-                    _followPlayer = false;
-                }
+                _obstaclesBetweenPlayer = !hit.collider.CompareTag("Player");
             }
-        }
-        else
-        {
-            _followPlayer = false;
         }
     }
 
     private void ExecuteFollowPlayer()
     {
-        if (_followPlayer)
+        // TODO: _player is only set when _playerInRange is true; So if I forget to check _playerInRange, I could get a NullReferenceException
+        if (_playerInRange)
         {
-            var localTransform = transform;
-            var position = localTransform.position;
-            var playerPosition = _player.transform.position;
-            var deltaX = position.x - playerPosition.x;
-            var direction = deltaX < 0 ? Vector2.right : Vector2.left;
-            var velocity = direction * (enemyStats.speed * Time.fixedDeltaTime);
-            localTransform.Translate(velocity);
+            _distanceToPlayer = Vector3.Distance(transform.position, _player.transform.position);
+            _engagePlayer = _playerInRange && !_obstaclesBetweenPlayer &&
+                            _distanceToPlayer > (targetDistanceToPlayer + _targetDistanceToPlayerOffset);
+            if (_engagePlayer)
+            {
+                var localTransform = transform;
+                var position = localTransform.position;
+                var playerPosition = _player.transform.position;
+                var deltaX = position.x - playerPosition.x;
+                var direction = deltaX < 0 ? Vector2.right : Vector2.left;
+                var velocity = direction * (enemyStats.speed * Time.fixedDeltaTime);
+                localTransform.Translate(velocity);
+            }
         }
     }
 
     public void StartFollowingPlayer(GameObject player)
     {
-        // var _playerController = player.GetComponent<PlayerController>();
         _player = player;
         _playerInRange = true;
+        _targetDistanceToPlayerOffset = Random.Range(0.4f, 1.5f);
     }
 
     public void StopFollowingPlayer()
     {
-        // var _playerController = player.GetComponent<PlayerController>();
-        _player = null;
         _playerInRange = false;
     }
 
     #endregion
+
+    #region Attack
+
+    [SerializeField] private float attackCooldown;
+
+    private void HandleAttack()
+    {
+        if (_playerInRange && !_obstaclesBetweenPlayer && attackCooldown == 0)
+        {
+            attackCooldown = enemyStats.attackCooldown;
+            // TODO: Invoke Attack Event;
+            ExecuteAttack();
+        }
+    }
+
+    private void ExecuteAttack()
+    {
+        // enemyStats.attackDamage
+        Debug.Log("Attacked Player!");
+        _player.GetComponent<PlayerController>().TakeDamage(enemyStats.attackDamage);
+    }
+
+    private void HandleAttackCooldown()
+    {
+        if (attackCooldown > 0)
+        {
+            attackCooldown -= Time.fixedDeltaTime;
+        }
+        else
+        {
+            attackCooldown = 0;
+        }
+    }
+
+    #endregion
+
+    #region Unity Editor
 
 #if UNITY_EDITOR
     private void OnValidate()
@@ -127,4 +150,6 @@ public class EnemyController : MonoBehaviour
             Debug.LogWarning("Please assign a Enemy Stats asset to the Enemy Controller's Enemy Stats slot", this);
     }
 #endif
+
+    #endregion
 }

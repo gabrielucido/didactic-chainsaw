@@ -32,3 +32,4 @@ MonoBehaviour:
   JumpBuffer: 0.3
   attackCooldown: 0.1
   attackDamage: 40
+  max_health_points: 100

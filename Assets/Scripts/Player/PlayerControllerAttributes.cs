@@ -66,4 +66,6 @@ public class PlayerControllerAttributes : ScriptableObject
     [Tooltip(
         "Damage dealt by attack.")]
     public int attackDamage = 40;
+
+    [Header("Stats")] public int max_health_points = 100;
 }

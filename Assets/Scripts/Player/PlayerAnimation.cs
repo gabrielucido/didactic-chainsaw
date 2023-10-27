@@ -34,7 +34,7 @@ public class PlayerAnimation : MonoBehaviour
 
     private void OnAttacked()
     {
-        var facingRight = _player.isFacingRight();
+        var facingRight = _player.IsFacingRight();
         var auxSpawnPosition = transform.position;
         auxSpawnPosition.x = auxSpawnPosition.x + (facingRight ? 1 : -1);
         var instance =

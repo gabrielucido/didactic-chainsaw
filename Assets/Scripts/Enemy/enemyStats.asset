@@ -13,3 +13,6 @@ MonoBehaviour:
   m_Name: enemyStats
   m_EditorClassIdentifier: 
   max_health_points: 100
+  speed: 5
+  attackDamage: 20
+  attackCooldown: 1
