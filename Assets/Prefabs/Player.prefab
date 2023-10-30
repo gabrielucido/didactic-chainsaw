@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3407057947545325434}
   - component: {fileID: 4442940049463242060}
-  - component: {fileID: 7387696880201131806}
+  - component: {fileID: 8950329135425098907}
   m_Layer: 3
   m_Name: PlayerCapsule
   m_TagString: Untagged
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7387696880201131806
+--- !u!114 &8950329135425098907
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -246,7 +246,7 @@ GameObject:
   - component: {fileID: 4984332571605759889}
   - component: {fileID: 504066755906455663}
   - component: {fileID: 6243927975587820513}
-  - component: {fileID: 7078284405493100717}
+  - component: {fileID: 7221110408110438258}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -335,7 +335,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
---- !u!114 &7078284405493100717
+--- !u!114 &7221110408110438258
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -344,7 +344,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3621059724433449449}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 617f18a0709bd452589caad3c253f9d6, type: 3}
+  m_Script: {fileID: 11500000, guid: 064d794b1080740729dd26f32fc03bd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerControllerAttributes: {fileID: 11400000, guid: 1dfb7669627ad42979f09aaa90a2ef44, type: 2}
+  soPlayer: {fileID: 11400000, guid: 24832d7f57dd8490095ecf9c5e18459f, type: 2}
+  healthPoints: 0

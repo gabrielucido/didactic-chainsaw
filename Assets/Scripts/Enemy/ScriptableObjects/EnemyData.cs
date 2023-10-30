@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu]
-public class EnemyStats : ScriptableObject
+public class EnemyData : ScriptableObject
 {
     [Header("General Stats")]
     [Tooltip(
