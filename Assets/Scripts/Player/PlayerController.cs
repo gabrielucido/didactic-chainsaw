@@ -38,6 +38,8 @@ public class PlayerController : MonoBehaviour, IPlayerController
     private bool _facingRight = true;
     private bool _attacking;
 
+    [SerializeField] private PlayerData playerData;
+
     #region Interface
 
     public Vector2 FrameInput => _frameInput.Move;
@@ -95,6 +97,7 @@ public class PlayerController : MonoBehaviour, IPlayerController
             _timeJumpWasPressed = _time;
         }
 
+        // TODO: move flip to a HandleFlip method
         if (_frameInput.Move.x > 0 && !_facingRight) Flip();
         else if (_frameInput.Move.x < 0 && _facingRight) Flip();
 
@@ -102,6 +105,9 @@ public class PlayerController : MonoBehaviour, IPlayerController
         {
             _attacking = true;
         }
+        
+        // TODO: Move to set to handleSOPosition
+        playerData.playerPosition = transform.position;
     }
 
     private void FixedUpdate()
@@ -214,6 +220,8 @@ public class PlayerController : MonoBehaviour, IPlayerController
                 _frameInput.Move.x * playerControllerAttributes.MaxSpeed,
                 playerControllerAttributes.Acceleration * Time.fixedDeltaTime);
         }
+        // in this case i used the transform position because the current
+        // script uses the rb.velocity instead of a vector3 position
     }
 
     private void Flip()
@@ -314,7 +322,12 @@ public class PlayerController : MonoBehaviour, IPlayerController
 
     #endregion
 
-    private void ApplyMovement() => _rb.velocity = _frameVelocity;
+    private void ApplyMovement()
+    {
+        _rb.velocity = _frameVelocity;
+        // instead of using local variable consume from Scriptable Object
+        // _rb.velocity = soPlayer.velocity or something _rb.position = soPlayer.position;
+    }
 
     public bool IsFacingRight() => _facingRight;
 
@@ -322,7 +335,13 @@ public class PlayerController : MonoBehaviour, IPlayerController
     private void OnValidate()
     {
         if (playerControllerAttributes == null)
-            Debug.LogWarning("Please assign a ScriptableStats asset to the Player Controller's Stats slot", this);
+        {
+            // Debug.LogWarning("Please assign a ScriptableStats asset to the Player Controller's Stats slot", this);
+        }
+        if (playerData == null)
+        {
+            Debug.LogWarning("Please assign a SOPlayer asset to the Player Controller's SOPlayer slot", this);
+        }
     }
 #endif
 }

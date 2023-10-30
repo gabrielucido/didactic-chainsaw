@@ -3,11 +3,11 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] private EnemyStats enemyStats;
+    [SerializeField] private EnemyData enemyData;
 
     private void Start()
     {
-        healthPoints = enemyStats.max_health_points;
+        healthPoints = enemyData.max_health_points;
     }
 
     private void FixedUpdate()
@@ -86,7 +86,7 @@ public class EnemyController : MonoBehaviour
                 var playerPosition = _player.transform.position;
                 var deltaX = position.x - playerPosition.x;
                 var direction = deltaX < 0 ? Vector2.right : Vector2.left;
-                var velocity = direction * (enemyStats.speed * Time.fixedDeltaTime);
+                var velocity = direction * (enemyData.speed * Time.fixedDeltaTime);
                 localTransform.Translate(velocity);
             }
         }
@@ -114,7 +114,7 @@ public class EnemyController : MonoBehaviour
     {
         if (_playerInRange && !_obstaclesBetweenPlayer && attackCooldown == 0)
         {
-            attackCooldown = enemyStats.attackCooldown;
+            attackCooldown = enemyData.attackCooldown;
             // TODO: Invoke Attack Event;
             ExecuteAttack();
         }
@@ -124,7 +124,7 @@ public class EnemyController : MonoBehaviour
     {
         // enemyStats.attackDamage
         Debug.Log("Attacked Player!");
-        _player.GetComponent<PlayerController>().TakeDamage(enemyStats.attackDamage);
+        _player.GetComponent<PlayerController>().TakeDamage(enemyData.attackDamage);
     }
 
     private void HandleAttackCooldown()
@@ -146,7 +146,7 @@ public class EnemyController : MonoBehaviour
 #if UNITY_EDITOR
     private void OnValidate()
     {
-        if (enemyStats == null)
+        if (enemyData == null)
             Debug.LogWarning("Please assign a Enemy Stats asset to the Enemy Controller's Enemy Stats slot", this);
     }
 #endif

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerAnimation : MonoBehaviour
+public class PlayerAnimationController : MonoBehaviour
 {
     private IPlayerController _player;
     public GameObject projectile;
@@ -30,6 +30,7 @@ public class PlayerAnimation : MonoBehaviour
 
     private void OnJumped()
     {
+        Debug.Log("Jumped animation!!!!");
     }
 
     private void OnAttacked()
