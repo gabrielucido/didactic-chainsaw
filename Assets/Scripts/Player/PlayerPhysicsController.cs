@@ -59,7 +59,6 @@ public class PlayerPhysicsController : PlayerBase
         else if (_grounded && !groundHit)
         {
             _grounded = false;
-            // Player._frameLeftGrounded = Player.time;
             GroundedChanged?.Invoke(false);
         }
 

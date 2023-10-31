@@ -21,6 +21,12 @@ public class PlayerInputController : PlayerBase
             : Mathf.Sign(Player.data.move.y);
     }
 
+    private void GatherJumpInput()
+    {
+        Player.data.jumpPressed = Input.GetButtonDown("Jump");
+        Player.data.jumpHeld = Input.GetButtonDown("Jump");
+    }
+
     private void GatherOtherInputs()
     {
         // if (_frameInput.JumpDown)
@@ -40,17 +46,5 @@ public class PlayerInputController : PlayerBase
 
         // TODO: Move to set to handleSOPosition
         // playerData.playerPosition = transform.position;   
-    }
-
-
-    private void GatherJumpInput()
-    {
-        // PlayerController.playerData._frameInput = new FrameInput
-        // {
-        //     // JumpDown = Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.C),
-        //     // JumpHeld = Input.GetButton("Jump") || Input.GetKey(KeyCode.C),
-        //     Move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")),
-        //     // Attack = Input.GetButtonDown("Attack") || Input.GetKeyDown(KeyCode.Mouse0)
-        // };
     }
 }
