@@ -14,24 +14,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerLayer:
     serializedVersion: 2
-    m_Bits: 0
-  snapInput: 1
-  verticalDeadZoneThreshold: 0.3
-  horizontalDeadZoneThreshold: 0.1
-  maxSpeed: 14
+    m_Bits: 8
+  maxSpeed: 10
   acceleration: 120
-  groundDeceleration: 60
+  groundDeceleration: 30
   airDeceleration: 30
   groundingForce: -1.5
   grounderDistance: 0.05
-  jumpPower: 36
-  maxFallSpeed: 40
-  fallAcceleration: 110
-  jumpEndEarlyGravityModifier: 3
+  jumpPower: 25
+  maxFallSpeed: 20
+  fallAcceleration: 100
+  jumpEndEarlyGravityModifier: 2
   coyoteTime: 0.15
-  jumpBuffer: 0.2
+  jumpBuffer: 0.3
   attackCooldown: 0.1
   attackDamage: 40
   maxHealthPoints: 100
-  playerPosition: {x: 0, y: 1.004981, z: 0}
+  playerPosition: {x: 0.0017276341, y: 1.0049751, z: 0}
+  snapInput: 1
+  verticalDeadZoneThreshold: 0.3
+  horizontalDeadZoneThreshold: 0.1
   move: {x: 0, y: 0}
+  jumpPressed: 0
+  jumpHeld: 0

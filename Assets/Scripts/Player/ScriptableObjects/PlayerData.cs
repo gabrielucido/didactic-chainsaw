@@ -6,20 +6,6 @@ public class PlayerData : ScriptableObject
     [Header("Layers")] [Tooltip("Set this to the layer your player is on")]
     public LayerMask playerLayer;
 
-    [Header("Input")]
-    [Tooltip(
-        "Makes all Input snap to an integer. Prevents gamepads from walking slowly. Recommended value is true to ensure gamepad/keybaord parity.")]
-    public bool snapInput = true;
-
-    [Tooltip(
-         "Minimum input required before you mount a ladder or climb a ledge. Avoids unwanted climbing using controllers"),
-     Range(0.01f, 0.99f)]
-    public float verticalDeadZoneThreshold = 0.3f;
-
-    [Tooltip("Minimum input required before a left or right is recognized. Avoids drifting with sticky controllers"),
-     Range(0.01f, 0.99f)]
-    public float horizontalDeadZoneThreshold = 0.1f;
-
     [Header("Movement")] [Tooltip("The top horizontal movement speed")]
     public float maxSpeed = 14;
 
@@ -74,6 +60,26 @@ public class PlayerData : ScriptableObject
         "The updated player transform position. This is used by the camera to follow the player")]
     public Vector3 playerPosition = Vector3.zero;
 
-    [Header("The input validated by the Player Input Controller or AI Input Controller")]
+    [Header("Input")]
+    [Tooltip(
+        "Makes all Input snap to an integer. Prevents gamepads from walking slowly. Recommended value is true to ensure gamepad/keybaord parity.")]
+    public bool snapInput = true;
+
+    [Tooltip(
+         "Minimum input required before you mount a ladder or climb a ledge. Avoids unwanted climbing using controllers"),
+     Range(0.01f, 0.99f)]
+    public float verticalDeadZoneThreshold = 0.3f;
+
+    [Tooltip("Minimum input required before a left or right is recognized. Avoids drifting with sticky controllers"),
+     Range(0.01f, 0.99f)]
+    public float horizontalDeadZoneThreshold = 0.1f;
+
+    [HideInInspector] [Tooltip("The movement input (x,y) normalized by the dead zone / snap input")]
     public Vector2 move = Vector2.zero;
+
+    [HideInInspector] [Tooltip("True in the frame were jump was pressed down")]
+    public bool jumpPressed = false;
+
+    [HideInInspector] [Tooltip("Jump input has been held down for more than one frame")]
+    public bool jumpHeld = false;
 }
