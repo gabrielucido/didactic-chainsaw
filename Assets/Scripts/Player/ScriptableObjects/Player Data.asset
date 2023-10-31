@@ -12,5 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 245b5fb3e914149b5acbf54585d38df8, type: 3}
   m_Name: Player Data
   m_EditorClassIdentifier: 
-  playerPosition: {x: 0, y: 1.0049998, z: 0}
-  myData: 0
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  snapInput: 1
+  verticalDeadZoneThreshold: 0.3
+  horizontalDeadZoneThreshold: 0.1
+  maxSpeed: 14
+  acceleration: 120
+  groundDeceleration: 60
+  airDeceleration: 30
+  groundingForce: -1.5
+  grounderDistance: 0.05
+  jumpPower: 36
+  maxFallSpeed: 40
+  fallAcceleration: 110
+  jumpEndEarlyGravityModifier: 3
+  coyoteTime: 0.15
+  jumpBuffer: 0.2
+  attackCooldown: 0.1
+  attackDamage: 40
+  maxHealthPoints: 100
+  playerPosition: {x: 0, y: 1.004981, z: 0}
+  move: {x: 0, y: 0}

@@ -124,7 +124,7 @@ public class EnemyController : MonoBehaviour
     {
         // enemyStats.attackDamage
         Debug.Log("Attacked Player!");
-        _player.GetComponent<PlayerController>().TakeDamage(enemyData.attackDamage);
+        // _player.GetComponent<PlayerManager>().TakeDamage(enemyData.attackDamage);
     }
 
     private void HandleAttackCooldown()

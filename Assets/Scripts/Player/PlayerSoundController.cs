@@ -1,23 +1,21 @@
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
-public class PlayerSoundController : MonoBehaviour
+public class PlayerSoundController : PlayerBase
 {
-    private IPlayerController _player;
     public AudioClip gunShot;
 
     private AudioSource _audioSource;
 
-    void Awake()
+    void Start()
     {
-        _player = GetComponentInParent<IPlayerController>();
         _audioSource = GetComponent<AudioSource>();
     }
 
     private void OnEnable()
     {
-        _player.Jumped += OnJumped;
-        _player.Attacked += OnAttacked;
+        // Player.Jumped += OnJumped;
+        // Player.Attacked += OnAttacked;
         // _player.GroundedChanged += OnGroundedChanged;
         //
         // _moveParticles.Play();
@@ -25,8 +23,8 @@ public class PlayerSoundController : MonoBehaviour
 
     private void OnDisable()
     {
-        _player.Jumped -= OnJumped;
-        _player.Attacked -= OnAttacked;
+        // Player.Jumped -= OnJumped;
+        // Player.Attacked -= OnAttacked;
         // _player.GroundedChanged -= OnGroundedChanged;
 
         // _moveParticles.Stop();
@@ -41,12 +39,6 @@ public class PlayerSoundController : MonoBehaviour
     {
         _audioSource.clip = gunShot;
         _audioSource.Play();
-        // var facingRight = _player.IsFacingRight();
-        // var auxSpawnPosition = transform.position;
-        // auxSpawnPosition.x = auxSpawnPosition.x + (facingRight ? 1 : -1);
-        // var instance =
-        //     Instantiate(projectile, auxSpawnPosition, transform.rotation); //, auxSpawnPosition, Quaternion.identity);
-        // instance.GetComponent<ProjectileController>().goingLeft = !facingRight;
     }
 
 
