@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6835653229344119206}
   - component: {fileID: 604038677657142825}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: Follow Player Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -150,4 +150,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a263cf85a03f54bb891485ceee2399fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soPlayer: {fileID: 11400000, guid: 24832d7f57dd8490095ecf9c5e18459f, type: 2}
+  playerData: {fileID: 11400000, guid: 24832d7f57dd8490095ecf9c5e18459f, type: 2}

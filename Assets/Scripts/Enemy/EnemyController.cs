@@ -123,7 +123,6 @@ public class EnemyController : MonoBehaviour
     private void ExecuteAttack()
     {
         // enemyStats.attackDamage
-        Debug.Log("Attacked Player!");
         // _player.GetComponent<PlayerManager>().TakeDamage(enemyData.attackDamage);
     }
 
