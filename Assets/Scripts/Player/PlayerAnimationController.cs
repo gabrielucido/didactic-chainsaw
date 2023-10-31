@@ -2,18 +2,18 @@ using UnityEngine;
 
 public class PlayerAnimationController : MonoBehaviour
 {
-    private IPlayerController _player;
+    private PlayerManager _playerManager;
     public GameObject projectile;
 
     void Awake()
     {
-        _player = GetComponentInParent<IPlayerController>();
+        _playerManager = GetComponentInParent<PlayerManager>();
     }
 
     private void OnEnable()
     {
-        _player.Jumped += OnJumped;
-        _player.Attacked += OnAttacked;
+        // _playerManager.Jumped += OnJumped;
+        // _playerManager.Attacked += OnAttacked;
         // _player.GroundedChanged += OnGroundedChanged;
         //
         // _moveParticles.Play();
@@ -21,27 +21,27 @@ public class PlayerAnimationController : MonoBehaviour
 
     private void OnDisable()
     {
-        _player.Jumped -= OnJumped;
-        _player.Attacked -= OnAttacked;
+        // _playerManager.Jumped -= OnJumped;
+        // _playerManager.Attacked -= OnAttacked;
         // _player.GroundedChanged -= OnGroundedChanged;
 
         // _moveParticles.Stop();
     }
 
-    private void OnJumped()
-    {
-        Debug.Log("Jumped animation!!!!");
-    }
+    // private void OnJumped()
+    // {
+    //     Debug.Log("Jumped animation!!!!");
+    // }
 
-    private void OnAttacked()
-    {
-        var facingRight = _player.IsFacingRight();
-        var auxSpawnPosition = transform.position;
-        auxSpawnPosition.x = auxSpawnPosition.x + (facingRight ? 1 : -1);
-        var instance =
-            Instantiate(projectile, auxSpawnPosition, transform.rotation); //, auxSpawnPosition, Quaternion.identity);
-        instance.GetComponent<ProjectileController>().goingLeft = !facingRight;
-    }
+    // private void OnAttacked()
+    // {
+    //     var facingRight = _playerManager.IsFacingRight();
+    //     var auxSpawnPosition = transform.position;
+    //     auxSpawnPosition.x = auxSpawnPosition.x + (facingRight ? 1 : -1);
+    //     var instance =
+    //         Instantiate(projectile, auxSpawnPosition, transform.rotation); //, auxSpawnPosition, Quaternion.identity);
+    //     instance.GetComponent<ProjectileController>().goingLeft = !facingRight;
+    // }
 
 
 #if UNITY_EDITOR

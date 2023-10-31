@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class FollowPlayerController : MonoBehaviour
@@ -30,21 +29,10 @@ public class FollowPlayerController : MonoBehaviour
     private void HandleCameraPosition()
     {
         _cameraPosition = new Vector3(playerData.playerPosition.x, playerData.playerPosition.y, transform.position.z);
-        
     }
 
     private void ExecuteCameraMovement()
     {
         transform.position = _cameraPosition;
     }
-
-#if UNITY_EDITOR
-    private void OnValidate()
-    {
-        if (playerData == null)
-        {
-            Debug.LogWarning("Please assign a Player asset to the Follow Player Controller's slot", this);
-        }
-    }
-#endif
 }
