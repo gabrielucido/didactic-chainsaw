@@ -4,11 +4,6 @@ public class PlayerManager : MonoBehaviour
 {
     public PlayerData data;
 
-    private void Update()
-    {
-        data.playerPosition = transform.position;
-    }
-
     #region Validation
 
 #if UNITY_EDITOR

@@ -164,4 +164,9 @@ public class PlayerMovementController : PlayerBase
     {
         _rb.velocity = _frameVelocity;
     }
+
+    public Vector2 GetVelocity()
+    {
+        return _rb.velocity;
+    }
 }

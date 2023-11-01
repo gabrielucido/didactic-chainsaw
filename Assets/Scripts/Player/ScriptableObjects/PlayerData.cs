@@ -55,11 +55,6 @@ public class PlayerData : ScriptableObject
 
     [Header("Stats")] public int maxHealthPoints = 100;
 
-    [Header("Camera")]
-    [Tooltip(
-        "The updated player transform position. This is used by the camera to follow the player")]
-    public Vector3 playerPosition = Vector3.zero;
-
     [Header("Input")]
     [Tooltip(
         "Makes all Input snap to an integer. Prevents gamepads from walking slowly. Recommended value is true to ensure gamepad/keybaord parity.")]

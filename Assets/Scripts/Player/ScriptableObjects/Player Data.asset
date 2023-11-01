@@ -15,13 +15,13 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
-  maxSpeed: 10
+  maxSpeed: 15
   acceleration: 120
   groundDeceleration: 30
   airDeceleration: 30
   groundingForce: -1.5
   grounderDistance: 0.05
-  jumpPower: 25
+  jumpPower: 40
   maxFallSpeed: 20
   fallAcceleration: 100
   jumpEndEarlyGravityModifier: 2
@@ -30,7 +30,7 @@ MonoBehaviour:
   attackCooldown: 0.1
   attackDamage: 40
   maxHealthPoints: 100
-  playerPosition: {x: 0.0017276341, y: 1.0049751, z: 0}
+  playerPosition: {x: 20.916079, y: 1.0049998, z: 0}
   snapInput: 1
   verticalDeadZoneThreshold: 0.3
   horizontalDeadZoneThreshold: 0.1
