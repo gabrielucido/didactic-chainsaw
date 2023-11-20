@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-[RequireComponent(typeof(EnemyPhysicsController))]
+[RequireComponent(typeof(PlayerPhysicsController))]
 public class EnemyMovementController : PlayerBase
 {
     private Rigidbody2D _rb;
@@ -50,7 +50,7 @@ public class EnemyMovementController : PlayerBase
 
     private void HandleDirection()
     {
-        if (Player.data.move.x == 0)
+        if (Player.move.x == 0)
         {
             var deceleration = _grounded
                 ? Player.data.groundDeceleration
@@ -60,7 +60,7 @@ public class EnemyMovementController : PlayerBase
         else
         {
             _frameVelocity.x = Mathf.MoveTowards(_frameVelocity.x,
-                Player.data.move.x * Player.data.maxSpeed,
+                Player.move.x * Player.data.maxSpeed,
                 Player.data.acceleration * Time.fixedDeltaTime);
         }
     }
@@ -85,14 +85,14 @@ public class EnemyMovementController : PlayerBase
 
     private void HandleJumpTimer()
     {
-        if (!Player.data.jumpPressed) return;
+        if (!Player.jumpPressed) return;
         _jumpPressedTime = _time;
         _jumpToConsume = true;
     }
 
     private void HandleJump()
     {
-        if (!_endedJumpEarly && !_grounded && !Player.data.jumpHeld && _rb.velocity.y > 0) _endedJumpEarly = true;
+        if (!_endedJumpEarly && !_grounded && !Player.jumpHeld && _rb.velocity.y > 0) _endedJumpEarly = true;
 
         if (!_jumpToConsume && !HasBufferedJump) return;
 
@@ -163,5 +163,10 @@ public class EnemyMovementController : PlayerBase
     private void ApplyMovement()
     {
         _rb.velocity = _frameVelocity;
+    }
+
+    public Vector2 GetVelocity()
+    {
+        return _rb.velocity;
     }
 }

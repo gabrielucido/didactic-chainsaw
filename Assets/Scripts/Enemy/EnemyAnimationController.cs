@@ -1,37 +1,46 @@
+using System;
 using UnityEngine;
 
-public class EnemyAnimationController : MonoBehaviour
+[RequireComponent(typeof(PlayerMovementController))]
+public class EnemyAnimationController : PlayerBase
 {
-    private PlayerManager _playerManager;
-    public GameObject projectile;
+    private PlayerMovementController _movementController;
+    private PlayerPhysicsController _physicsController;
+    private Animator _animator;
+    private SpriteRenderer _spriteRenderer;
+    private bool _grounded = true;
+    private bool _walking;
+    private bool _idling;
 
-    void Awake()
+    protected override void Awake()
     {
-        _playerManager = GetComponentInParent<PlayerManager>();
+        base.Awake();
+        _movementController = GetComponent<PlayerMovementController>();
+        _physicsController = GetComponent<PlayerPhysicsController>();
+        _animator = GetComponent<Animator>();
+        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
-    private void OnEnable()
+    private void FixedUpdate()
     {
-        // _playerManager.Jumped += OnJumped;
-        // _playerManager.Attacked += OnAttacked;
-        // _player.GroundedChanged += OnGroundedChanged;
-        //
-        // _moveParticles.Play();
+        HandleSpriteFlip();
+        HandleAnimationState();
     }
 
-    private void OnDisable()
+    private void HandleAnimationState()
     {
-        // _playerManager.Jumped -= OnJumped;
-        // _playerManager.Attacked -= OnAttacked;
-        // _player.GroundedChanged -= OnGroundedChanged;
+        var velocity = _movementController.GetVelocity();
+        _animator.SetBool(IdlingKey, Player.move.x == 0);
+        _animator.SetBool(WalkingKey, Player.move.x != 0);
 
-        // _moveParticles.Stop();
+        _animator.SetBool(Falling, velocity.y < 0 && !_grounded);
+        _animator.SetBool(Jumping, velocity.y > 0 && !_grounded);
     }
 
-    // private void OnJumped()
-    // {
-    //     Debug.Log("Jumped animation!!!!");
-    // }
+    private void HandleSpriteFlip()
+    {
+        if (Player.move.x != 0) _spriteRenderer.flipX = Player.move.x < 0;
+    }
 
     // private void OnAttacked()
     // {
@@ -43,12 +52,35 @@ public class EnemyAnimationController : MonoBehaviour
     //     instance.GetComponent<ProjectileController>().goingLeft = !facingRight;
     // }
 
+    #region Events
 
-#if UNITY_EDITOR
-    private void OnValidate()
+    private void OnEnable()
     {
-        if (projectile == null)
-            Debug.LogWarning("Please assign a Projectile Prefab to the Player Animation Projectile slot", this);
+        _physicsController.GroundedChanged += OnGroundChanged;
+        // Player.Jumped += OnJumped;
+        // _playerManager.Attacked += OnAttacked;
+        // _player.GroundedChanged += OnGroundedChanged;
+        //
+        // _moveParticles.Play();
     }
-#endif
+
+    private void OnDisable()
+    {
+        _physicsController.GroundedChanged -= OnGroundChanged;
+        // _playerManager.Attacked -= OnAttacked;
+        // _player.GroundedChanged -= OnGroundedChanged;
+        // _moveParticles.Stop();
+    }
+
+    #endregion
+
+    private void OnGroundChanged(bool grounded)
+    {
+        _grounded = grounded;
+    }
+
+    private static readonly int IdlingKey = Animator.StringToHash("idling");
+    private static readonly int WalkingKey = Animator.StringToHash("walking");
+    private static readonly int Jumping = Animator.StringToHash("jumping");
+    private static readonly int Falling = Animator.StringToHash("falling");
 }

@@ -30,8 +30,8 @@ public class PlayerAnimationController : PlayerBase
     private void HandleAnimationState()
     {
         var velocity = _movementController.GetVelocity();
-        _animator.SetBool(IdlingKey, Player.data.move.x == 0);
-        _animator.SetBool(WalkingKey, Player.data.move.x != 0);
+        _animator.SetBool(IdlingKey, Player.move.x == 0);
+        _animator.SetBool(WalkingKey, Player.move.x != 0);
 
         _animator.SetBool(Falling, velocity.y < 0 && !_grounded);
         _animator.SetBool(Jumping, velocity.y > 0 && !_grounded);
@@ -39,7 +39,8 @@ public class PlayerAnimationController : PlayerBase
 
     private void HandleSpriteFlip()
     {
-        if (Player.data.move.x != 0) _spriteRenderer.flipX = Player.data.move.x < 0;
+        if (Player.move.x != 0) _spriteRenderer.flipX = Player.move.x < 0;
+        Player.facingRight = !_spriteRenderer.flipX;
     }
 
     // private void OnAttacked()

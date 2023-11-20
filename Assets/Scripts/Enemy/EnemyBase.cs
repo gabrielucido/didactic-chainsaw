@@ -1,19 +1,18 @@
 using UnityEngine;
 
 /// <summary>
-/// Base class for all player controllers 
+/// Base class for all enemy controllers 
 /// </summary>
 /// <remarks>
-/// This automatically sets a reference to the main PlayerManager script to be used within a controller.
-///  For example to access the player's data scriptable object, you can use PlayerController.playerData
+/// This automatically sets a reference to the main EnemyManager script to be used within a controller.
+///  For example to access the enemy's data scriptable object, you can use EnemyController.enemyData
 /// </remarks>
-[RequireComponent(typeof(EnemyManager))]
 public abstract class EnemyBase : MonoBehaviour
 {
-    protected EnemyManager Enemy;
+    protected EnemyManager Instance;
 
     protected virtual void Awake()
     {
-        Enemy = GetComponentInParent<EnemyManager>();
+        Instance = GetComponentInParent<EnemyManager>();
     }
 }
