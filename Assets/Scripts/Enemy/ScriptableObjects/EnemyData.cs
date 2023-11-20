@@ -1,29 +1,24 @@
 using UnityEngine;
 
 [CreateAssetMenu]
-public class EnemyData : ScriptableObject
+public class EnemyData : CharacterData
 {
-    [Header("General Stats")]
-    [Tooltip(
-        "Makes all Input snap to an integer. Prevents gamepads from walking slowly. Recommended value is true to ensure gamepad/keybaord parity.")]
-    public int max_health_points = 100;
-
     [Tooltip(
          "The movement speed of the Enemy."), Range(0.01f, 20)]
     public float speed = 5;
 
     [Tooltip(
-         "The damage dealt by the Enemy in each attack."), Range(1, 100)]
-    public int attackDamage = 5;
+         "The maximum distance allowed to attack"), Range(0.01f, 100)]
+    public float attackRange = 3;
 
     [Tooltip(
-         "The Cooldown in seconds between each each attack."), Range(0.01f, 10)]
-    public float attackCooldown = 1;
+         "The distance to follow the player"), Range(0.01f, 100)]
+    public float followDistance = 3;
 
     // TODO: Revise imports
 
     [Header("Layers")] [Tooltip("Set this to the layer your player is on")]
-    public LayerMask playerLayer;
+    public LayerMask enemyLayer;
 
     [Header("Movement")] [Tooltip("The top horizontal movement speed")]
     public float maxSpeed = 14;
@@ -62,13 +57,6 @@ public class EnemyData : ScriptableObject
     [Tooltip("The amount of time we buffer a jump. This allows jump input before actually hitting the ground")]
     public float jumpBuffer = .2f;
 
-    [Header("Stats")] public int maxHealthPoints = 100;
-
-    [Header("Camera")]
-    [Tooltip(
-        "The updated player transform position. This is used by the camera to follow the player")]
-    public Vector3 playerPosition = Vector3.zero;
-
     [Header("Input")]
     [Tooltip(
         "Makes all Input snap to an integer. Prevents gamepads from walking slowly. Recommended value is true to ensure gamepad/keybaord parity.")]
@@ -82,13 +70,4 @@ public class EnemyData : ScriptableObject
     [Tooltip("Minimum input required before a left or right is recognized. Avoids drifting with sticky controllers"),
      Range(0.01f, 0.99f)]
     public float horizontalDeadZoneThreshold = 0.1f;
-
-    [HideInInspector] [Tooltip("The movement input (x,y) normalized by the dead zone / snap input")]
-    public Vector2 move = Vector2.zero;
-
-    [HideInInspector] [Tooltip("True in the frame were jump was pressed down")]
-    public bool jumpPressed = false;
-
-    [HideInInspector] [Tooltip("Jump input has been held down for more than one frame")]
-    public bool jumpHeld = false;
 }

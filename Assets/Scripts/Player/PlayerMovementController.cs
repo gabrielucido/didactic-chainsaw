@@ -50,7 +50,7 @@ public class PlayerMovementController : PlayerBase
 
     private void HandleDirection()
     {
-        if (Player.data.move.x == 0)
+        if (Player.move.x == 0)
         {
             var deceleration = _grounded
                 ? Player.data.groundDeceleration
@@ -60,7 +60,7 @@ public class PlayerMovementController : PlayerBase
         else
         {
             _frameVelocity.x = Mathf.MoveTowards(_frameVelocity.x,
-                Player.data.move.x * Player.data.maxSpeed,
+                Player.move.x * Player.data.maxSpeed,
                 Player.data.acceleration * Time.fixedDeltaTime);
         }
     }
@@ -85,14 +85,14 @@ public class PlayerMovementController : PlayerBase
 
     private void HandleJumpTimer()
     {
-        if (!Player.data.jumpPressed) return;
+        if (!Player.jumpPressed) return;
         _jumpPressedTime = _time;
         _jumpToConsume = true;
     }
 
     private void HandleJump()
     {
-        if (!_endedJumpEarly && !_grounded && !Player.data.jumpHeld && _rb.velocity.y > 0) _endedJumpEarly = true;
+        if (!_endedJumpEarly && !_grounded && !Player.jumpHeld && _rb.velocity.y > 0) _endedJumpEarly = true;
 
         if (!_jumpToConsume && !HasBufferedJump) return;
 

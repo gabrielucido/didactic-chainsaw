@@ -7,7 +7,6 @@ using UnityEngine;
 /// This automatically sets a reference to the main PlayerManager script to be used within a controller.
 ///  For example to access the player's data scriptable object, you can use PlayerController.playerData
 /// </remarks>
-[RequireComponent(typeof(PlayerManager))]
 public abstract class PlayerBase : MonoBehaviour
 {
     protected PlayerManager Player;

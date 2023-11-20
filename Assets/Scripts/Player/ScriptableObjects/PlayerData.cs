@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu]
-public class PlayerData : ScriptableObject
+public class PlayerData : CharacterData
 {
     [Header("Layers")] [Tooltip("Set this to the layer your player is on")]
     public LayerMask playerLayer;
@@ -43,18 +43,6 @@ public class PlayerData : ScriptableObject
     [Tooltip("The amount of time we buffer a jump. This allows jump input before actually hitting the ground")]
     public float jumpBuffer = .2f;
 
-    [Header("Attack")]
-    [Tooltip(
-         "Makes all Input snap to an integer. Prevents gamepads from walking slowly. Recommended value is true to ensure gamepad/keybaord parity."),
-     Range(.1f, 60)]
-    public float attackCooldown = 1;
-
-    [Tooltip(
-        "Damage dealt by attack.")]
-    public int attackDamage = 40;
-
-    [Header("Stats")] public int maxHealthPoints = 100;
-
     [Header("Input")]
     [Tooltip(
         "Makes all Input snap to an integer. Prevents gamepads from walking slowly. Recommended value is true to ensure gamepad/keybaord parity.")]
@@ -68,13 +56,4 @@ public class PlayerData : ScriptableObject
     [Tooltip("Minimum input required before a left or right is recognized. Avoids drifting with sticky controllers"),
      Range(0.01f, 0.99f)]
     public float horizontalDeadZoneThreshold = 0.1f;
-
-    [HideInInspector] [Tooltip("The movement input (x,y) normalized by the dead zone / snap input")]
-    public Vector2 move = Vector2.zero;
-
-    [HideInInspector] [Tooltip("True in the frame were jump was pressed down")]
-    public bool jumpPressed = false;
-
-    [HideInInspector] [Tooltip("Jump input has been held down for more than one frame")]
-    public bool jumpHeld = false;
 }

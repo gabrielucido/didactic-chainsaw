@@ -1,9 +1,23 @@
+using System;
 using UnityEngine;
 
-public class EnemyManager : MonoBehaviour
+public class EnemyManager : MonoBehaviour, ICharacter
 {
     public EnemyData data;
-    
+    public GameObject followTarget;
+
+    public int health;
+
+    public void Start()
+    {
+        health = data.maxHealthPoints;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+    }
+
     #region Validation
 
 #if UNITY_EDITOR
