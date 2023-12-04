@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 674b4ca8e2f5e47e79dac49c6283a287
+guid: 69cbf33ed525b864cb8db48930353f58
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7896281735413620878
-    second: playerSprite_0
+      213: 1076843446899965069
+    second: FrontalSenzala_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -83,18 +83,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -110,13 +98,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: playerSprite_0
+      name: FrontalSenzala_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 8
-        width: 318
-        height: 741
+        y: 0
+        width: 2437
+        height: 443
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,8 +112,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 27f14421995ca6290800000000000000
-      internalID: -7896281735413620878
+      spriteID: d8cfd2bd867b1fe00800000000000000
+      internalID: 1076843446899965069
       vertices: []
       indices: 
       edges: []
@@ -140,8 +128,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      playerSprite_0: -7896281735413620878
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

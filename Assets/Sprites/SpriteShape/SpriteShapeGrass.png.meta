@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 674b4ca8e2f5e47e79dac49c6283a287
+guid: 8e8bf9d8236f76a48af47822b7286ffd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7896281735413620878
-    second: playerSprite_0
+      213: -2563215432681257237
+    second: SpriteShapeGrass_0
+  - first:
+      213: -1387744032626757231
+    second: SpriteShapeGrass_1
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -37,7 +40,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,19 +78,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,13 +101,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: playerSprite_0
+      name: SpriteShapeGrass_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 8
-        width: 318
-        height: 741
+        y: 0
+        width: 6605
+        height: 359
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,8 +115,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 27f14421995ca6290800000000000000
-      internalID: -7896281735413620878
+      spriteID: be60c3cf421ad6cd0800000000000000
+      internalID: -2563215432681257237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteShapeGrass_1
+      rect:
+        serializedVersion: 2
+        x: 1275
+        y: 354
+        width: 19
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1913d18a72ebdbce0800000000000000
+      internalID: -1387744032626757231
       vertices: []
       indices: 
       edges: []
@@ -141,7 +153,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      playerSprite_0: -7896281735413620878
+      SpriteShapeGrass_0: -2563215432681257237
+      SpriteShapeGrass_1: -1387744032626757231
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

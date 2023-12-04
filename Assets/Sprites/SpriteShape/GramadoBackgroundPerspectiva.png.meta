@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 674b4ca8e2f5e47e79dac49c6283a287
+guid: d31baa82c3cd33345963bb3a78108d43
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7896281735413620878
-    second: playerSprite_0
+      213: 6554707840729118928
+    second: GramadoBackgroundPerspectiva_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,19 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,12 +98,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: playerSprite_0
+      name: GramadoBackgroundPerspectiva_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 8
-        width: 318
+        y: 0
+        width: 5935
         height: 741
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -124,8 +112,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 27f14421995ca6290800000000000000
-      internalID: -7896281735413620878
+      spriteID: 0d870258d0007fa50800000000000000
+      internalID: 6554707840729118928
       vertices: []
       indices: 
       edges: []
@@ -141,7 +129,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      playerSprite_0: -7896281735413620878
+      GramadoBackgroundPerspectiva_0: 6554707840729118928
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
