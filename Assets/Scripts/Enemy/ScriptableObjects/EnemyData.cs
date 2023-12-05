@@ -14,6 +14,10 @@ public class EnemyData : CharacterData
     [Tooltip(
          "The distance to follow the player"), Range(0.01f, 100)]
     public float followDistance = 3;
+    
+    [Tooltip(
+         "The distance to follow the player"), Range(0.01f, 100)]
+    public float patrolSpeed = 4;
 
     // TODO: Revise imports
 

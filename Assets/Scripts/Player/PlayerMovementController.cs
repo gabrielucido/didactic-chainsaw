@@ -74,7 +74,7 @@ public class PlayerMovementController : PlayerBase
 
     private bool _endedJumpEarly;
     private bool _coyoteUsable;
-    private float _jumpPressedTime;
+    private float _jumpPressedTime;     
     private float _frameLeftGrounded;
 
     private bool HasBufferedJump =>
