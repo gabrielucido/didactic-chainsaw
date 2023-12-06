@@ -19,7 +19,7 @@ public class EnemyData : CharacterData
          "The distance to follow the player"), Range(0.01f, 100)]
     public float patrolSpeed = 4;
 
-    // TODO: Revise imports
+    // TODO: Revise unused attributes
 
     [Header("Layers")] [Tooltip("Set this to the layer your player is on")]
     public LayerMask enemyLayer;

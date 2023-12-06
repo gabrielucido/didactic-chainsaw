@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e5bbc1ffcad7e4513867c42b566bc2e1, type: 3}
-  m_Name: Basic Enemy
+  m_Name: Scarecrow Enemy
   m_EditorClassIdentifier: 
   maxHealthPoints: 100
   attackCooldown: 1
-  attackDamage: 20
-  speed: 1
+  attackDamage: 0
+  speed: 0.01
   attackRange: 3
   followDistance: 3
   patrolSpeed: 4
   enemyLayer:
     serializedVersion: 2
     m_Bits: 256
-  maxSpeed: 5
+  maxSpeed: 0
   acceleration: 120
   groundDeceleration: 60
   airDeceleration: 30
