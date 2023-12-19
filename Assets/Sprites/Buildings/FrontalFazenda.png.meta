@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 77582c9b70d23d64e846d219c4351317
+guid: bf3b60c4a45f17b48a5d4acb6fd13935
 TextureImporter:
   internalIDToNameTable:
   - first:
       213: -6002527375696452755
     second: FrontalFazenda_0
+  - first:
+      213: 3601405038319574903
+    second: FrontalFazenda_1
+  - first:
+      213: -2695410102168397693
+    second: FrontalFazenda_2
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -114,9 +120,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 2077
-        height: 1118
+        y: 21
+        width: 2075
+        height: 1141
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -126,6 +132,48 @@ TextureImporter:
       bones: []
       spriteID: d632e01972db2bca0800000000000000
       internalID: -6002527375696452755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FrontalFazenda_1
+      rect:
+        serializedVersion: 2
+        x: 1951
+        y: 1157
+        width: 31
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77f17512dc2caf130800000000000000
+      internalID: 3601405038319574903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FrontalFazenda_2
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 0
+        width: 13
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 388d0400bcaf79ad0800000000000000
+      internalID: -2695410102168397693
       vertices: []
       indices: 
       edges: []
