@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: bf3b60c4a45f17b48a5d4acb6fd13935
+guid: 217503c0993f95e4aaf36d758d6c0ff7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6002527375696452755
-    second: FrontalFazenda_0
-  - first:
-      213: 3601405038319574903
-    second: FrontalFazenda_1
-  - first:
-      213: -2695410102168397693
-    second: FrontalFazenda_2
+      213: 2407077394678481369
+    second: GramadoBackground_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -81,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -104,55 +98,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FrontalFazenda_0
+      name: GramadoBackground_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 21
-        width: 2075
-        height: 1141
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d632e01972db2bca0800000000000000
-      internalID: -6002527375696452755
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: FrontalFazenda_1
-      rect:
-        serializedVersion: 2
-        x: 1951
-        y: 1157
-        width: 31
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 77f17512dc2caf130800000000000000
-      internalID: 3601405038319574903
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: FrontalFazenda_2
-      rect:
-        serializedVersion: 2
-        x: 66
         y: 0
-        width: 13
-        height: 6
+        width: 4335
+        height: 221
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,8 +112,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 388d0400bcaf79ad0800000000000000
-      internalID: -2695410102168397693
+      spriteID: 9d10fa02328a76120800000000000000
+      internalID: 2407077394678481369
       vertices: []
       indices: 
       edges: []
@@ -176,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      GramadoBackground_0: 2407077394678481369
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

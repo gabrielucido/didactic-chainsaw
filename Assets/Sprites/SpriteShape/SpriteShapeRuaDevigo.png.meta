@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: bf3b60c4a45f17b48a5d4acb6fd13935
+guid: 9701f25604edfb34998d9381b158aa10
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6002527375696452755
-    second: FrontalFazenda_0
+      213: 8308861236491500746
+    second: SpriteShapeRuaDevigo_0
   - first:
-      213: 3601405038319574903
-    second: FrontalFazenda_1
+      213: 4864011646400745246
+    second: SpriteShapeRuaDevigo_1
   - first:
-      213: -2695410102168397693
-    second: FrontalFazenda_2
+      213: 7499369997934420902
+    second: SpriteShapeRuaDevigo_2
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -104,64 +104,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FrontalFazenda_0
+      name: SpriteShapeRuaDevigo_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 21
-        width: 2075
-        height: 1141
+        y: 0
+        width: 4581
+        height: 326
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 1029, y: 0, z: 701, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d632e01972db2bca0800000000000000
-      internalID: -6002527375696452755
+      spriteID: accb619b5410f4370800000000000000
+      internalID: 8308861236491500746
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontalFazenda_1
+      name: SpriteShapeRuaDevigo_1
       rect:
         serializedVersion: 2
-        x: 1951
-        y: 1157
-        width: 31
+        x: 4746
+        y: 270
+        width: 14
         height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 77f17512dc2caf130800000000000000
-      internalID: 3601405038319574903
+      spriteID: e1f441f52d0708340800000000000000
+      internalID: 4864011646400745246
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontalFazenda_2
+      name: SpriteShapeRuaDevigo_2
       rect:
         serializedVersion: 2
-        x: 66
-        y: 0
-        width: 13
-        height: 6
+        x: 4709
+        y: 107
+        width: 61
+        height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 388d0400bcaf79ad0800000000000000
-      internalID: -2695410102168397693
+      spriteID: 6a36a1e974d131860800000000000000
+      internalID: 7499369997934420902
       vertices: []
       indices: 
       edges: []
@@ -169,14 +169,17 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: e441290007cdbc54a9e09a59179cbf29
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SpriteShapeRuaDevigo_0: 8308861236491500746
+      SpriteShapeRuaDevigo_1: 4864011646400745246
+      SpriteShapeRuaDevigo_2: 7499369997934420902
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
