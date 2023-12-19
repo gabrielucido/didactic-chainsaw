@@ -73,3 +73,7 @@ crashlytics-build.properties
 
 # JetBrains IDE
 .idea/
+
+# MACOS files
+
+.DS_Store
