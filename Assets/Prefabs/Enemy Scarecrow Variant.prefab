@@ -50,13 +50,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5755862777817927650, guid: bdd8a318b559446349343098cd0cbd44, type: 3}
       propertyPath: m_Name
-      value: Scarecrow Enemy Variant
+      value: Enemy Scarecrow Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7565164873875097957, guid: bdd8a318b559446349343098cd0cbd44, type: 3}
       propertyPath: data
       value: 
       objectReference: {fileID: 11400000, guid: ad9f2363b72624634966e94cc4576a67, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1255812305972320886, guid: bdd8a318b559446349343098cd0cbd44, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
