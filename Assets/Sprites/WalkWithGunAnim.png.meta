@@ -124,6 +124,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -368,7 +380,18 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      WalkWithGunAnim_0: 1027088463693829319
+      WalkWithGunAnim_1: -6709082613209132378
+      WalkWithGunAnim_10: -634638589225868757
+      WalkWithGunAnim_2: -603839840461426865
+      WalkWithGunAnim_3: -7775087923063291028
+      WalkWithGunAnim_4: 4042672971334921029
+      WalkWithGunAnim_5: -2954772096753039172
+      WalkWithGunAnim_6: 1315805012374473335
+      WalkWithGunAnim_7: 5463392489889872945
+      WalkWithGunAnim_8: 6114247320276705140
+      WalkWithGunAnim_9: -195306699796062886
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

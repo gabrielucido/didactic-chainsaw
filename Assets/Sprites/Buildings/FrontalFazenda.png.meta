@@ -133,7 +133,7 @@ TextureImporter:
       spriteID: d632e01972db2bca0800000000000000
       internalID: -6002527375696452755
       vertices: []
-      indices: 
+      indices:
       edges: []
       weights: []
     - serializedVersion: 2
@@ -154,7 +154,7 @@ TextureImporter:
       spriteID: 77f17512dc2caf130800000000000000
       internalID: 3601405038319574903
       vertices: []
-      indices: 
+      indices:
       edges: []
       weights: []
     - serializedVersion: 2
@@ -175,23 +175,23 @@ TextureImporter:
       spriteID: 388d0400bcaf79ad0800000000000000
       internalID: -2695410102168397693
       vertices: []
-      indices: 
+      indices:
       edges: []
       weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID:
     internalID: 0
     vertices: []
-    indices: 
+    indices:
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
       FrontalFazenda_0: -6002527375696452755
-  mipmapLimitGroupName: 
+  mipmapLimitGroupName:
   pSDRemoveMatte: 0
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+  userData:
+  assetBundleName:
+  assetBundleVariant:

@@ -8382,13 +8382,17 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1084879250293793784, guid: 6cfdc87f2d3a44db69fda6db81507764, type: 3}
+      propertyPath: ShoulderOffset.y
+      value: 9.66
+      objectReference: {fileID: 0}
     - target: {fileID: 1442981142663100867, guid: 6cfdc87f2d3a44db69fda6db81507764, type: 3}
       propertyPath: m_LocalPosition.x
       value: 228.5
       objectReference: {fileID: 0}
     - target: {fileID: 1442981142663100867, guid: 6cfdc87f2d3a44db69fda6db81507764, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -23.37
+      value: -13.310001
       objectReference: {fileID: 0}
     - target: {fileID: 1442981142663100867, guid: 6cfdc87f2d3a44db69fda6db81507764, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8424,11 +8428,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4525766826014672679, guid: 6cfdc87f2d3a44db69fda6db81507764, type: 3}
       propertyPath: field of view
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4525766826014672679, guid: 6cfdc87f2d3a44db69fda6db81507764, type: 3}
       propertyPath: m_FOVAxisMode
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4525766826014672679, guid: 6cfdc87f2d3a44db69fda6db81507764, type: 3}
+      propertyPath: far clip plane
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 4541731798616175303, guid: 6cfdc87f2d3a44db69fda6db81507764, type: 3}
       propertyPath: m_Name
@@ -8444,7 +8452,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5477360477718067817, guid: 6cfdc87f2d3a44db69fda6db81507764, type: 3}
       propertyPath: m_Lens.FieldOfView
-      value: 100
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5477360477718067817, guid: 6cfdc87f2d3a44db69fda6db81507764, type: 3}
+      propertyPath: m_Lens.FarClipPlane
+      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
