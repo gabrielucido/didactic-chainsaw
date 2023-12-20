@@ -140,7 +140,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bandeirola_0: -446519151797549861
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
